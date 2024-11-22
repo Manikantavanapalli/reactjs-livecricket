@@ -1,3 +1,5 @@
+// src/components/HelloWorld.tsx
+
 import React from 'react';
 
 interface HelloWorldProps {
