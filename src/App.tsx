@@ -1,10 +1,10 @@
 import React from 'react';
-import HelloWorld from './components/HelloWorld';
+import Homepage from './pages/HomePage';
 
 function App() {
   return (
     <div>
-      <HelloWorld name="React with TypeScript" />
+        <Homepage/>
     </div>
   );
 }
