@@ -31,9 +31,11 @@ const App: React.FC = () => {
       <div className="bg-gray-50 min-h-screen">
         {/* Navbar Section */}
         <nav
-          className={`${scrolling ? "bg-teal-700" : "bg-teal-900"
+          className={`${scrolling ? "bg-green-700" : "bg-green-900"
             } text-white p-6 shadow-md fixed w-full top-0 left-0 z-50 transition-all duration-300`}
         >
+
+
 
           <div className="container mx-auto flex justify-between items-center">
             <Link to="/" className="text-3xl font-bold hover:text-gray-300 transition duration-300">
