@@ -7,6 +7,7 @@ import UpcomingMatches from "./components/UpcomingMatches";
 
 const App: React.FC = () => {
   const [scrolling, setScrolling] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false); // State to toggle the menu on mobile
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,30 +35,53 @@ const App: React.FC = () => {
           className={`${scrolling ? "bg-green-700" : "bg-green-900"
             } text-white p-6 shadow-md fixed w-full top-0 left-0 z-50 transition-all duration-300`}
         >
-
-
-
           <div className="container mx-auto flex justify-between items-center">
             <Link to="/" className="text-3xl font-bold hover:text-gray-300 transition duration-300">
               Manikanta vanapalli
             </Link>
+            
+            {/* Mobile Hamburger Menu */}
+            <div className="md:hidden flex items-center">
+              <button onClick={() => setMenuOpen(!menuOpen)} className="text-white focus:outline-none">
+                <svg
+                  className="w-6 h-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
-              <Link
-                to="/live-matches"
-                className="hover:text-gray-300 transition duration-300 text-lg"
-              >
+              <Link to="/live-matches" className="hover:text-gray-300 transition duration-300 text-lg">
                 Live Matches
               </Link>
-              <Link
-                to="/news"
-                className="hover:text-gray-300 transition duration-300 text-lg"
-              >
+              <Link to="/news" className="hover:text-gray-300 transition duration-300 text-lg">
                 News
               </Link>
-              <Link
-                to="/upcoming-matches"
-                className="hover:text-gray-300 transition duration-300 text-lg"
-              >
+              <Link to="/upcoming-matches" className="hover:text-gray-300 transition duration-300 text-lg">
+                Upcoming Matches
+              </Link>
+            </div>
+
+            {/* Mobile Menu (Toggle) */}
+            <div className={`md:hidden ${menuOpen ? "block" : "hidden"} absolute top-20 left-0 w-full bg-green-900 p-4`}>
+              <Link to="/live-matches" className="block text-white py-2 text-lg hover:bg-green-700 transition duration-300">
+                Live Matches
+              </Link>
+              <Link to="/news" className="block text-white py-2 text-lg hover:bg-green-700 transition duration-300">
+                News
+              </Link>
+              <Link to="/upcoming-matches" className="block text-white py-2 text-lg hover:bg-green-700 transition duration-300">
                 Upcoming Matches
               </Link>
             </div>
